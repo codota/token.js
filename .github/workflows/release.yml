@@ -5,7 +5,7 @@ on:
     inputs:
       version:
         description: 'Version'
-        default: 'patch'
+        default: 'minor'
   push:
     branches:
       - main
@@ -35,7 +35,7 @@ jobs:
       - name: Build
         run: pnpm build
       - name: Version
-        run: pnpm version ${{ inputs.version }} && git push && git push --tags
+        run: pnpm version ${{ inputs.version || 'minor' }} && git push && git push --tags
       - name: Publish
         run: pnpm publish
         env:
