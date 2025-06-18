@@ -264,7 +264,7 @@ export const convertMessages = async (
       }
       currentParams.push(toolResult)
     } else if (message.role === 'assistant') {
-      if (typeof message.content === 'string') {
+      if (typeof message.content === 'string' && message.content !== '') {
         const text = makeTextContent(message.role, message.content)
         currentParams.push({
           text,
