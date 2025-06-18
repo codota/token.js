@@ -14,6 +14,10 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
+      - name: Setup git
+        run: |
+          git config --global user.email "builder+skip-ci@codota.com"
+          git config --global user.name "codota-builder"
       - uses: actions/checkout@v4
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -32,7 +36,7 @@ jobs:
         run: pnpm build
       - name: Version
         run: pnpm version ${{ inputs.version }} && git push && git push --tags
-      - name: Publish 
+      - name: Publish
         run: pnpm publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
