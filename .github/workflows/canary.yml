@@ -20,6 +20,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
+        registry-url: 'https://npm.pkg.github.com/'
+        scope: '@codota'
     - name: Install dependencies
       run: pnpm install
     - name: Build
