@@ -269,6 +269,8 @@ export const models = {
   },
   bedrock: {
     models: [
+      'us.anthropic.claude-sonnet-4-20250514-v1:0',
+      'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
       'amazon.titan-text-lite-v1',
       'amazon.titan-text-express-v1',
       'anthropic.claude-3-5-sonnet-20240620-v1:0',
@@ -294,6 +296,8 @@ export const models = {
     ] as const,
     supportsCompletion: true,
     supportsStreaming: [
+      'us.anthropic.claude-sonnet-4-20250514-v1:0',
+      'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
       'amazon.titan-text-lite-v1',
       'amazon.titan-text-express-v1',
       'anthropic.claude-3-5-sonnet-20240620-v1:0',
@@ -323,6 +327,8 @@ export const models = {
     // `responseFormat` field.
     supportsJSON: [],
     supportsImages: [
+      'us.anthropic.claude-sonnet-4-20250514-v1:0',
+      'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
       'anthropic.claude-3-5-sonnet-20240620-v1:0',
       'anthropic.claude-3-5-sonnet-20241022-v2:0',
       'anthropic.claude-3-sonnet-20240229-v1:0',
@@ -330,6 +336,8 @@ export const models = {
       'anthropic.claude-3-haiku-20240307-v1:0',
     ] as const,
     supportsToolCalls: [
+      'us.anthropic.claude-sonnet-4-20250514-v1:0',
+      'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
       'anthropic.claude-3-5-sonnet-20240620-v1:0',
       'anthropic.claude-3-5-sonnet-20241022-v2:0',
       'anthropic.claude-3-5-haiku-20241022-v1:0',
