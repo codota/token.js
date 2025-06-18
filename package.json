@@ -7,7 +7,7 @@
   },
   "packageManager": "pnpm@8.6.12",
   "description": "Integrate 9 LLM providers with a single Typescript SDK using OpenAIs format.",
-  "main": "dist/index.cjs",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "files": [
