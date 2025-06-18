@@ -38,7 +38,7 @@ devDependencies:
     specifier: ^7.18.2
     version: 7.25.9(@babel/core@7.26.0)(eslint@8.57.1)
   '@changesets/cli':
-    specifier: ^2.16.0
+    specifier: ^2.27.9
     version: 2.27.9
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.26.0
