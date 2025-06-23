@@ -138,7 +138,7 @@ const toChatCompletionChoiceMessage = (
           arguments:
             block.toolUse.input !== undefined
               ? JSON.stringify(block.toolUse.input)
-              : '',
+              : '{}',
         },
         type: 'function',
       }
@@ -492,7 +492,7 @@ async function* createCompletionResponseStreaming(
               type: 'function',
               function: {
                 name: stream.contentBlockStart.start.toolUse.name,
-                arguments: '',
+                arguments: '{}',
               },
             },
           ],
@@ -523,7 +523,8 @@ async function* createCompletionResponseStreaming(
               {
                 index: index - initialToolCallIndex,
                 function: {
-                  arguments: stream.contentBlockDelta.delta.toolUse.input,
+                  arguments:
+                    stream.contentBlockDelta.delta.toolUse.input || '{}',
                 },
               },
             ],
