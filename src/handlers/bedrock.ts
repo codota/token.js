@@ -517,16 +517,28 @@ async function* createCompletionResponseStreaming(
             )
           }
 
-          delta = {
-            tool_calls: [
-              {
-                index: index - initialToolCallIndex,
-                function: {
-                  arguments:
-                    stream.contentBlockDelta.delta.toolUse.input || '{}',
+          if (stream.contentBlockStop) {
+            delta = {
+              tool_calls: [
+                {
+                  index: index - initialToolCallIndex,
+                  function: {
+                    arguments: stream.contentBlockDelta.delta.toolUse.input || '{}',
+                  },
                 },
-              },
-            ],
+              ],
+            }
+          } else {
+            delta = {
+              tool_calls: [
+                {
+                  index: index - initialToolCallIndex,
+                  function: {
+                    arguments: stream.contentBlockDelta.delta.toolUse.input,
+                  },
+                },
+              ],
+            }
           }
         }
       }
@@ -543,19 +555,16 @@ async function* createCompletionResponseStreaming(
             index: 0,
             finish_reason: finishReason,
             logprobs: null,
-            delta:
-              finishReason === 'tool_calls'
-                ? {
-                    tool_calls: [
-                      {
-                        index: 0,
-                        function: {
-                          arguments: '{}',
-                        },
-                      },
-                    ],
-                  }
-                : delta,
+            delta: finishReason === 'tool_calls' ? {
+              tool_calls: [
+                {
+                  index: 0,
+                  function: {
+                    arguments: '{}',
+                  },
+                },
+              ],
+            } : delta,
           },
         ],
         created,
