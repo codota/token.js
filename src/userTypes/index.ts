@@ -16,6 +16,16 @@ export type ConfigOptions = Pick<ClientOptions, 'apiKey' | 'baseURL'> & {
     accessKeyId?: string
     secretAccessKey?: string
   }
+  /* @param vertex - The Vertex configuration object containing necessary credentials and settings
+   * @param vertex.region - The Google Cloud region where the Vertex AI service is deployed
+   * @param vertex.projectId - The Google Cloud project ID
+   * @param vertex.serviceAccount - Base64-encoded service account credentials for Google Cloud authentication
+   */
+  vertex?: {
+    region?: string
+    projectId?: string
+    serviceAccount?: string
+  }
 }
 
 export type ChatCompletionChoice = Omit<
