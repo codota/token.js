@@ -194,8 +194,6 @@ export async function* createCompletionResponseStreaming(
           total_tokens: inputTokens + outputTokens,
         },
       }),
-      // Our SDK doesn't currently support OpenAI's `stream_options`, so we don't include a `usage`
-      // field here.
     }
   }
 }
