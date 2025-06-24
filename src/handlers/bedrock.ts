@@ -492,7 +492,6 @@ async function* createCompletionResponseStreaming(
               type: 'function',
               function: {
                 name: stream.contentBlockStart.start.toolUse.name,
-                arguments: '{}',
               },
             },
           ],
@@ -544,7 +543,19 @@ async function* createCompletionResponseStreaming(
             index: 0,
             finish_reason: finishReason,
             logprobs: null,
-            delta,
+            delta:
+              finishReason === 'tool_calls'
+                ? {
+                    tool_calls: [
+                      {
+                        index: 0,
+                        function: {
+                          arguments: '{}',
+                        },
+                      },
+                    ],
+                  }
+                : delta,
           },
         ],
         created,
