@@ -67,7 +67,7 @@ type CompletionBase<P extends LLMProvider> = Pick<
 
 export type CompletionStreaming<P extends LLMProvider> = CompletionBase<P> & {
   stream: true
-}
+} & Pick<ChatCompletionCreateParamsBase, 'stream_options'>
 
 export type CompletionNonStreaming<P extends LLMProvider> =
   CompletionBase<P> & {
