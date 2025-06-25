@@ -6,6 +6,7 @@ import { LLMChatModel, LLMProvider } from '../chat/index.js'
 import { models } from '../models.js'
 import { ConfigOptions } from '../userTypes/index.js'
 import { AI21Handler } from './ai21.js'
+import { AnthropicVertexHandler } from './anthropic-vertex.js'
 import { AnthropicHandler } from './anthropic.js'
 import { BaseHandler } from './base.js'
 import { BedrockHandler } from './bedrock.js'
@@ -39,6 +40,16 @@ export const Handlers: Record<string, (opts: ConfigOptions) => any> = {
       models.anthropic.supportsToolCalls,
       models.anthropic.supportsN,
       models.anthropic.supportsStreaming
+    ),
+  ['anthropic-vertex']: (opts: ConfigOptions) =>
+    new AnthropicVertexHandler(
+      opts,
+      models['anthropic-vertex'].models,
+      models['anthropic-vertex'].supportsJSON,
+      models['anthropic-vertex'].supportsImages,
+      models['anthropic-vertex'].supportsToolCalls,
+      models['anthropic-vertex'].supportsN,
+      models['anthropic-vertex'].supportsStreaming
     ),
   ['gemini']: (opts: ConfigOptions) =>
     new GeminiHandler(

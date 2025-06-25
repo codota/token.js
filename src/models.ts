@@ -197,6 +197,33 @@ export const models = {
     supportsN: false,
     generateDocs: true,
   },
+  'anthropic-vertex': {
+    /* https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude */
+    models: [
+      'claude-3-5-sonnet-v2@20241022',
+      'claude-3-7-sonnet@20250219',
+      'claude-sonnet-4@20250514',
+    ] as const,
+    supportsCompletion: true,
+    supportsStreaming: [
+      'claude-3-5-sonnet-v2@20241022',
+      'claude-3-7-sonnet@20250219',
+      'claude-sonnet-4@20250514',
+    ] as const,
+    supportsJSON: [] as const,
+    supportsImages: [
+      'claude-3-5-sonnet-v2@20241022',
+      'claude-3-7-sonnet@20250219',
+      'claude-sonnet-4@20250514',
+    ] as const,
+    supportsToolCalls: [
+      'claude-3-5-sonnet-v2@20241022',
+      'claude-3-7-sonnet@20250219',
+      'claude-sonnet-4@20250514',
+    ] as const,
+    supportsN: false,
+    generateDocs: true,
+  },
   gemini: {
     models: [
       'gemini-2.0-flash-001',

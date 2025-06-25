@@ -34,11 +34,13 @@
   "license": "MIT",
   "dependencies": {
     "@anthropic-ai/sdk": "0.24.3",
+    "@anthropic-ai/vertex-sdk": "^0.4.1",
     "@aws-sdk/client-bedrock-runtime": "3.609.0",
     "@google/generative-ai": "0.14.1",
     "@mistralai/mistralai": "0.5.0",
     "chalk": "^4.1.2",
     "cohere-ai": "7.10.6",
+    "google-auth-library": "^9.2.0",
     "mime-types": "^2.1.35",
     "nanoid": "^5.0.7",
     "openai": "4.91.1"

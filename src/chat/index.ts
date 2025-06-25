@@ -11,6 +11,8 @@ import {
 export type OpenAIModel = (typeof models.openai.models)[number]
 export type AI21Model = (typeof models.ai21.models)[number]
 export type AnthropicModel = (typeof models.anthropic.models)[number]
+export type AnthropicVertexModel =
+  (typeof models)['anthropic-vertex']['models'][number]
 export type GeminiModel = (typeof models.gemini.models)[number]
 export type CohereModel = (typeof models.cohere.models)[number]
 export type BedrockModel = (typeof models.bedrock.models)[number]
@@ -24,6 +26,7 @@ export type LLMChatModel =
   | OpenAIModel
   | AI21Model
   | AnthropicModel
+  | AnthropicVertexModel
   | GeminiModel
   | CohereModel
   | BedrockModel
@@ -39,6 +42,7 @@ type ProviderModelMap = {
   openai: OpenAIModel
   ai21: AI21Model
   anthropic: AnthropicModel
+  'anthropic-vertex': AnthropicVertexModel
   gemini: GeminiModel
   cohere: CohereModel
   bedrock: BedrockModel
