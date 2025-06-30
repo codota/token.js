@@ -178,7 +178,16 @@ export async function* createCompletionResponseStreaming(
       index: 0,
       finish_reason: finishReason,
       logprobs: null,
-      delta,
+      delta: finishReason === "tool_calls" ? {
+        tool_calls: [
+          {
+            index: 0,
+            function: {
+              arguments: '{}',
+            },
+          },
+        ],
+      } : delta,
     }
 
     yield {
